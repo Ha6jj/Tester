@@ -1,0 +1,18 @@
+#!/bin/bash
+
+./build
+
+input="testset"
+output="logging"
+exec > $output
+while read line;
+do
+    script_answer="$(echo $line | ./script)"
+    checker_answer="$(echo $line | ./checker)"
+    if [[ $script_answer != $checker_answer ]]
+    then
+        echo "test: $line\n"
+        echo "script_answer: $script_answer"
+        echo "checker_answer: $checker_answer"
+    fi
+done < $input

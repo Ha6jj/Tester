@@ -1,0 +1,8 @@
+#!/bin/bash
+
+rm checker
+rm script
+rm testset
+gcc script.c -o script
+gcc checker.c -o checker
+python3 generator.py
